@@ -1,9 +1,11 @@
 from selenium import webdriver
 import unittest
 
+
 class NewVisitorTest(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
+        """self.browser = webdriver.Chrome()"""
         self.browser.implicitly_wait(3)
 
     def tearDown(self):
@@ -17,7 +19,6 @@ class NewVisitorTest(unittest.TestCase):
 
     def test_google(self):
         self.browser.get('http://www.google.com')
-
         self.assertIn('Google', self.browser.title)
 
 if __name__ == '__main__':
